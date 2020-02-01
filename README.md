@@ -32,7 +32,8 @@ class Solution {
             if(current == null){
               nullSeen = true;  
             } else {
-                // If we already saw a null node and then If we see a non null node, that means its not a complete binary tree 
+                // If we already saw a null node 
+                // and then If we see a non null node, that means its not a complete binary tree 
                 if(nullSeen)
                     return false;
                 queue.offer(current.left);
