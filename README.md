@@ -44,6 +44,31 @@ class Solution {
     }
 }
 ```
+## Little Refactoring
+```java
+class Solution {
+    public boolean isCompleteTree(TreeNode root) {
+        if(root == null)
+            return true;
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        boolean nullSeen = false;
+        while(!q.isEmpty()) {
+            TreeNode node = q.poll();
+            if(node == null)
+                nullSeen = true;
+            else if(nullSeen)
+                return false;
+            else {
+                q.add(node.left);
+                q.add(node.right);
+            }
+        }
+        return true;
+    }
+}
+```
+
 
 # References :
 https://www.youtube.com/watch?v=j16cwbLEf9w
